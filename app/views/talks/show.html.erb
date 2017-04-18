@@ -1,0 +1,9 @@
+<h1>id = <%= @talks.id %> のトーク詳細ページ</h1>
+
+<p><%= @talks.content %></p>
+
+<%= link_to '一覧に戻る', talks_path %>
+
+<%= link_to 'このメッセージを編集する', edit_talk_path(@talks) %>
+
+<%= link_to 'このメッセージを削除する', @talks, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

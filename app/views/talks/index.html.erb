@@ -1,0 +1,10 @@
+<h1>トーク    一覧</h1>
+
+<ul>
+  <% @talks.each do |talk| %>
+    <li><%= link_to talk.id, talk %> :
+        <%= talk.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Make new talk', new_talk_path %>
