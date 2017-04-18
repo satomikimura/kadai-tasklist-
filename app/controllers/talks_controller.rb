@@ -45,8 +45,9 @@ class TalksController < ApplicationController
   
   private
   # Strong Parameter
+  
   def talks_params
-    params.require(:talk).permit(:content)
+    params.require(:talk).permit(:content, :status)
   end
     
     def set_task

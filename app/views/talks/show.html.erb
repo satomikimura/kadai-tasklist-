@@ -1,6 +1,7 @@
 <h1>id = <%= @talks.id %> タスク詳細ページ</h1>
 
-<p><%= @talks.content %></p>
+<p>内容 : <%= @talks.content %></p>
+<p>状態 : <%= @talks.status %></p>
 
 <%= link_to '一覧に戻る', talks_path %>
 
