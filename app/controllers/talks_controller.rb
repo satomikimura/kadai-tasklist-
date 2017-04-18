@@ -14,10 +14,10 @@ class TalksController < ApplicationController
   def create
     @talks = Talk.new(talks_params)
     if @talks.save
-      flash[:success] = 'talk が正常に投稿されました'
+      flash[:success] = 'タスク が正常に投稿されました'
       redirect_to @talks
     else
-      flash.now[:danger] = 'talk が投稿されませんでした'
+      flash.now[:danger] = 'タスク が投稿されませんでした'
       render :new
     end
   end
@@ -29,10 +29,10 @@ class TalksController < ApplicationController
   def update
     @talks = Talk.find(params[:id])
     if @talks.update(talks_params)
-      flash[:success] = 'talk は正常に更新されました'
+      flash[:success] = 'タスク は正常に更新されました'
       redirect_to @talks
     else
-      flash.now[:danger] = 'talk は更新されませんでした'
+      flash.now[:danger] = 'タスク は更新されませんでした'
       render :edit
     end
   end
@@ -41,7 +41,7 @@ class TalksController < ApplicationController
     @talks = Talk.find(params[:id])
     @talks.destroy
 
-    flash[:success] = 'Talk は正常に削除されました'
+    flash[:success] = 'タスク は正常に削除されました'
     redirect_to talks_url
   end
   
