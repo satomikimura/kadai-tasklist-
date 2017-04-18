@@ -1,10 +1,11 @@
 class TalksController < ApplicationController
+    before_action :set_task, only:[:show, :edit, :update, :destroy]
+  
   def index
       @talks = Talk.all
   end
 
   def show
-      @talks = Talk.find(params[:id])
   end
 
   def new
@@ -23,7 +24,6 @@ class TalksController < ApplicationController
   end
 
   def edit
-      @talks = Talk.find(params[:id])
   end
   
   def update
@@ -38,20 +38,18 @@ class TalksController < ApplicationController
   end
 
   def destroy
-    @talks = Talk.find(params[:id])
     @talks.destroy
-
     flash[:success] = 'タスク は正常に削除されました'
     redirect_to talks_url
   end
   
-  
   private
-
   # Strong Parameter
   def talks_params
     params.require(:talk).permit(:content)
   end
-
-  
+    
+    def set_task
+        @talks = Talk.find(params[:id])
+    end
 end
