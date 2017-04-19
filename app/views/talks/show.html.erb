@@ -1,10 +1,21 @@
 <h1>id = <%= @talks.id %> タスク詳細ページ</h1>
 
-<p>内容 : <%= @talks.content %></p>
-<p>状態 : <%= @talks.status %></p>
+<table class = "table table-bordered">
+    <tr>
+        <th>id</th>
+        <td><%= @talks.id %></td>
+    </tr>
+    <tr>
+        <th>Task</th>
+        <td><%= @talks.content %></td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td><%= @talks.status %></td>
+    </tr>
+</table>
 
-<%= link_to '一覧に戻る', talks_path %>
 
-<%= link_to 'このタスクを編集する', edit_talk_path(@talks) %>
+<%= link_to 'このタスクを編集する', edit_talk_path(@talks), class: 'btn btn-default' %>
 
-<%= link_to 'このタスクを削除する', @talks, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to 'このタスクを削除する', @talks, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

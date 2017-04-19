@@ -1,10 +1,30 @@
 <h1>タスク一覧</h1>
 
-<ul>
-  <% @talks.each do |talk| %>
-    <li><%= link_to talk.id, talk %> :
-        <%= talk.content %> ( <%= talk.status %> )</li>
-  <% end %>
-</ul>
+<% if @talks.any? %>
 
-<%= link_to 'Make new task', new_talk_path %>
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>content</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @talks.each do |talk| %>
+      <tr>
+        <td><%= link_to talk.id, talk %></td>
+        <td><%= talk.content %></td>
+        <td><%= talk.status %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div>
+    <%= paginate @talks %>
+  </div>
+<% end %>
+
+<%= link_to 'Make new task', new_talk_path, class: "btn btn-primary" %>

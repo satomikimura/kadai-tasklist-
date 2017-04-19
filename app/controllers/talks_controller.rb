@@ -2,7 +2,8 @@ class TalksController < ApplicationController
     before_action :set_task, only:[:show, :edit, :update, :destroy]
   
   def index
-      @talks = Talk.all
+      @talks = Talk.all.page(params[:page]).per(15)
+      @talks = Talk.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def show
